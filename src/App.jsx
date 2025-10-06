@@ -4,6 +4,7 @@ import { useState } from 'react'
 function App() {
   const [label, setLabel] = useState("Click Me");
   const [size , setsize] =useState("medium");
+  const [variant, setVariant] = useState("Solid");
 
   return (
     
@@ -40,11 +41,22 @@ function App() {
             <option value="medium">Medium</option>
             <option value="large">Large</option>
           </select>
-        </div>  
-
+         
+        {/*Vaeiant selector */}
+        <label className="block mt-4 mb-2 text-sm font-medium">Button Variant</label>
+        <select 
+            className="w-full p-2 border border-gray-600 rounded bg-gray-800 text-white"
+            value={variant}
+            onChange={(e) => setVariant(e.target.value)}
+          >
+            <option value="Solid">Solid</option>
+            <option value="Outline">Outline</option>
+            <option value="Ghost">Ghost</option>
+          </select>
+          </div> 
         {/* Preview (w-1/2) - MUST be flexed to center content */}
         <div className="w-1/2 flex items-center justify-center"> 
-          <Button label={label} size={size} />
+          <Button label={label} size={size} variant={variant} />
         </div>
 
         {/* Code (w-1/4) */}
