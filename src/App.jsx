@@ -5,6 +5,7 @@ function App() {
   const [label, setLabel] = useState("Click Me");
   const [size , setsize] =useState("medium");
   const [variant, setVariant] = useState("Solid");
+  const [color, setColor] = useState("#3b82f6");
 
   return (
     
@@ -53,10 +54,22 @@ function App() {
             <option value="Outline">Outline</option>
             <option value="Ghost">Ghost</option>
           </select>
+
+          
+          {/* color selector */}
+          <label className="block mt-4 mb-2 text-sm font-medium">Button Color</label>
+          <input
+            type="color"
+            className="w-full h-10 p-0 border-0 rounded bg-gray-800"
+            value={color}
+            onChange={(e) => setColor(e.target.value)}
+            />
           </div> 
+
+           
         {/* Preview (w-1/2) - MUST be flexed to center content */}
         <div className="w-1/2 flex items-center justify-center"> 
-          <Button label={label} size={size} variant={variant} />
+          <Button label={label} size={size} variant={variant} color={color}/>
         </div>
 
         {/* Code (w-1/4) */}
